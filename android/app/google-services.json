@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "829629053874",
+    "project_id": "coffee-buddy-501f6",
+    "storage_bucket": "coffee-buddy-501f6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:829629053874:android:c0d5dd7e88c05b93aa42ab",
+        "android_client_info": {
+          "package_name": "com.Techusher.CoffeeBuddy.coffee_buddy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "829629053874-8mmi70o1g0atd0sflh9pbfbcsa24p086.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyADZLrYj2ZngmDfWnMiAkJxDAtm2FMVR2Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "829629053874-8mmi70o1g0atd0sflh9pbfbcsa24p086.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
