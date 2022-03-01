@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import '../../controller/AuthController.dart';
+import 'package:flutter/services.dart';
 
-class Signin extends StatefulWidget {
+class Register extends StatefulWidget {
+
   Function toggle;
-  Signin({required this.toggle});
+  Register({required this.toggle});
 
   @override
-  _SigninState createState() => _SigninState();
+  _RegisterState createState() => _RegisterState();
 }
 
-class _SigninState extends State<Signin> {
+class _RegisterState extends State<Register> {
 
   final AuthController _auth = AuthController();
   final _formKey = GlobalKey<FormState>();
@@ -21,12 +22,12 @@ class _SigninState extends State<Signin> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Sign In'),
+        title: const Text('Sign Up'),
         actions: [
           ElevatedButton.icon(
-              onPressed: (){widget.toggle();},
-              icon: const Icon(Icons.person),
-              label: const Text('Sign Up'),
+            onPressed: (){widget.toggle();},
+            icon: const Icon(Icons.person),
+            label: const Text('Sign in'),
             style: ButtonStyle(
               elevation: MaterialStateProperty.all(0.0),
             ),
@@ -64,7 +65,7 @@ class _SigninState extends State<Signin> {
                   print(password);
                 }
               },
-              child: const Text('sign in'),
+              child: const Text('sign Up'),
             ),
           ],
         ),

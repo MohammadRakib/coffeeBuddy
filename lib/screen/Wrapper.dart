@@ -13,6 +13,6 @@ class Wrapper extends StatelessWidget {
 
     final user = Provider.of<AppUser?>(context);
 
-    return user != null? Home():Signin();
+    return user != null? Home():Authentication();
   }
 }
