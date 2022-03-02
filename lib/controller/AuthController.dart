@@ -17,25 +17,52 @@ class AuthController{
   }
 
   //sign in anonymous
-  Future AnonSignIn() async{
+  Future anonSignIn() async{
     try{
       UserCredential userCredential = await _auth.signInAnonymously();
       User? user = userCredential.user;
       return _getUser(user);
   }
-  catch(e){
+    on FirebaseAuthException catch(e){
       print(e.toString());
-      return null;
-  }
+      return e.message;
+    }
   }
 
+  //email and password Register
+  Future emailPasswordRegister({required String email, required String password}) async{
+    try{
+      UserCredential userCredential = await _auth.createUserWithEmailAndPassword(email: email, password: password);
+      User? user = userCredential.user;
+      return _getUser(user);
+    }
+    on FirebaseAuthException catch(e){
+      print(e.toString());
+      return e.message;
+    }
+  }
+
+  //email and password Sign in
+  Future emailPasswordSignIn({required String email, required String password}) async{
+    try{
+      UserCredential userCredential = await _auth.signInWithEmailAndPassword(email: email, password: password);
+      User? user = userCredential.user;
+      return _getUser(user);
+    }
+    on FirebaseAuthException catch(e){
+      print(e.toString());
+      return e.message;
+    }
+  }
+
+  //sign out
   Future signOut() async{
     try{
       return await _auth.signOut();
     }
-    catch(e){
+    on FirebaseAuthException catch(e){
       print(e.toString());
-      return 'could not sign out';
+      return e.message;
     }
 
   }

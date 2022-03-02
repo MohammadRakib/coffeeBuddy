@@ -5,7 +5,7 @@ import 'package:flutter/services.dart';
 class Register extends StatefulWidget {
 
   Function toggle;
-  Register({required this.toggle});
+  Register({Key? key, required this.toggle}) : super(key: key);
 
   @override
   _RegisterState createState() => _RegisterState();
@@ -17,6 +17,7 @@ class _RegisterState extends State<Register> {
   final _formKey = GlobalKey<FormState>();
   String email = '';
   String password = '';
+  String errorMessage = '';
 
   @override
   Widget build(BuildContext context) {
@@ -54,18 +55,25 @@ class _RegisterState extends State<Register> {
             const SizedBox(height: 15.0,),
             ElevatedButton(
               onPressed: () async{
-                // dynamic user = await _auth.AnonSignIn();
-                // if(user == null){
-                //   print('sign in error');
-                // }else{
-                //   print(user.userId);
-                // }
                 if(_formKey.currentState!.validate()) {
-                  print(email);
-                  print(password);
+                  dynamic user = await _auth.emailPasswordRegister(email: email, password: password);
+                  if(user is String){
+                    setState(() {
+                      errorMessage = user;
+                    });
+                  }else{
+                    print(user.userId);
+                  }
                 }
               },
               child: const Text('sign Up'),
+            ),
+            const SizedBox(height: 15.0,),
+            Text(
+              errorMessage,
+              style: TextStyle(
+                color: Colors.red[900],
+              ),
             ),
           ],
         ),
