@@ -1,5 +1,6 @@
 import 'package:coffee_buddy/controller/AuthController.dart';
 import 'package:coffee_buddy/model/AppUser.dart';
+import 'package:coffee_buddy/screen/Authentication/Register.dart';
 import 'package:coffee_buddy/screen/Wrapper.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -21,7 +22,10 @@ class MyApp extends StatelessWidget {
       value: AuthController().user,
       initialData: null,
       child: MaterialApp(
-        home: Wrapper(),
+        routes: {
+          '/': (context)=>const Wrapper(),
+          '/register': (context) => Register(),
+        },
       ),
     );
   }

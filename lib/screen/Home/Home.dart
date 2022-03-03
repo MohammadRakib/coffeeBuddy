@@ -1,5 +1,4 @@
 import 'package:coffee_buddy/controller/AuthController.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatelessWidget {
@@ -16,7 +15,9 @@ class Home extends StatelessWidget {
           ElevatedButton.icon(
               onPressed: () async{
                  dynamic signout = await _auth.signOut();
-                 if(signout != null){
+                 if(signout is String){
+                   print(signout);
+                 }else{
                    print(signout);
                  }
               },

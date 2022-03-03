@@ -22,7 +22,7 @@ class _AuthenticationState extends State<Authentication> {
   @override
   Widget build(BuildContext context) {
 
-    return toggleSignInSignUP?Signin(toggle: toggle):Register(toggle: toggle);
+    return const Signin();
   }
 }
 
