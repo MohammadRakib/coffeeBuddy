@@ -1,3 +1,4 @@
+import 'package:coffee_buddy/Shared/Loading.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../../Shared/decoration.dart';
@@ -18,10 +19,11 @@ class _SigninState extends State<Signin> {
   String email = '';
   String password = '';
   String errorMessage = '';
+  bool loading = false;
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return loading? const Loading() : Scaffold(
       backgroundColor: Colors.brown.shade50,
       appBar: AppBar(
         title: const Text('Sign In'),
@@ -65,10 +67,14 @@ class _SigninState extends State<Signin> {
               OutlinedButton(
                 onPressed: () async{
                   if(_formKey.currentState!.validate()) {
+                    setState(() {
+                      loading = true;
+                    });
                     dynamic user = await _auth.emailPasswordSignIn(email: email, password: password);
                     if(user is String){
                       setState(() {
                         errorMessage = user;
+                        loading = false;
                       });
                     }else{
                       print(user.userId);
