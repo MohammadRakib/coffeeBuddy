@@ -20,6 +20,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return StreamProvider<AppUser?>.value(
       value: AuthController().user,
+      catchError: (_,__) => null,
       initialData: null,
       child: MaterialApp(
         routes: {

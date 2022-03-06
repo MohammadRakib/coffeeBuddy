@@ -10,14 +10,6 @@ class Authentication extends StatefulWidget {
 }
 
 class _AuthenticationState extends State<Authentication> {
-  bool toggleSignInSignUP = true;
-
-  void toggle(){
-    setState(() {
-      toggleSignInSignUP = !toggleSignInSignUP;
-    });
-  }
-
 
   @override
   Widget build(BuildContext context) {

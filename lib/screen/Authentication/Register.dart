@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../Shared/decoration.dart';
 import '../../controller/AuthController.dart';
 import 'package:flutter/services.dart';
+import 'package:coffee_buddy/controller/DatabaseController.dart';
 
 class Register extends StatefulWidget {
 
@@ -15,6 +16,7 @@ class Register extends StatefulWidget {
 class _RegisterState extends State<Register> {
 
   final AuthController _auth = AuthController();
+  final DatabaseController _databaseController = DatabaseController();
   final _formKey = GlobalKey<FormState>();
   String email = '';
   String password = '';
@@ -65,6 +67,7 @@ class _RegisterState extends State<Register> {
                         loading = false;
                       });
                     }else{
+                      await _databaseController.updateUser(user);
                       Navigator.pop(context);
                     }
                   }

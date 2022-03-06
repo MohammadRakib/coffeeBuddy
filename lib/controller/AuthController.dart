@@ -8,7 +8,7 @@ class AuthController{
   //get user
   AppUser? _getUser(User? user){
 
-    return user != null? AppUser(userId: user.uid):null;
+    return AppUser(userId: user!.uid);
   }
 
   //auth change user stream
