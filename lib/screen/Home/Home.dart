@@ -1,6 +1,7 @@
 import 'package:coffee_buddy/controller/AuthController.dart';
 import 'package:coffee_buddy/controller/DatabaseController.dart';
 import 'package:coffee_buddy/model/AppUser.dart';
+import 'package:coffee_buddy/screen/Home/BuddyCardList.dart';
 import 'package:coffee_buddy/screen/Home/CurrentUser.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -15,7 +16,7 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   final AuthController _auth = AuthController();
   final DatabaseController _databaseController = DatabaseController();
-  List<Widget> states = [UserCardList(), CurrentUser()];
+  List<Widget> states = [UserCardList(), BuddyCardList() ,CurrentUser()];
   int _state = 0;
 
   @override
@@ -51,12 +52,16 @@ class _HomeState extends State<Home> {
         bottomNavigationBar: BottomNavigationBar(
           items: const [
             BottomNavigationBarItem(
-              icon: Icon(Icons.group),
+              icon: Icon(Icons.supervised_user_circle),
+              label: "People",
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.groups),
               label: "Buddy",
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.person),
-              label: "Person",
+              icon: Icon(Icons.face),
+              label: "Profile",
             ),
           ],
           onTap: (index) {
