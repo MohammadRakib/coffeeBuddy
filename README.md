@@ -19,7 +19,7 @@ This is a personal flutter project for learning purpose.
   - [People](#people)
   - [Buddy](#buddy)
   - [Profile](#profile)
-* [Loading Screen](loading-screen)
+* [Loading Screen](#loading-screen)
 * [Sign Out](#sign-out)
 
 ## TODO Features
