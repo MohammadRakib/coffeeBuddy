@@ -1,10 +1,35 @@
 import 'package:coffee_buddy/model/AppUser.dart';
 import 'package:flutter/material.dart';
 
+import '../../controller/DatabaseController.dart';
+
 class UserCard extends StatelessWidget {
 
   final AppUser user;
-  UserCard({required this.user});
+  final AppUser? currentUser;
+  UserCard({Key? key, required this.user, required this.currentUser}) : super(key: key);
+  final DatabaseController _databaseController = DatabaseController();
+
+  clickListItem(BuildContext context) => showDialog<String>(
+    context: context,
+    builder: (BuildContext context) => AlertDialog(
+      title: const Text('Buddy'),
+      content: Text('Do you want to become buddy with ${user.name}'),
+      actions: <Widget>[
+        TextButton(
+          onPressed: () => Navigator.pop(context, 'Cancel'),
+          child: const Text('Cancel'),
+        ),
+        TextButton(
+          onPressed: () async {
+            await _databaseController.addBuddy(user,currentUser);
+            Navigator.pop(context, 'OK');
+          },
+          child: const Text('OK'),
+        ),
+      ],
+    ),
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -17,6 +42,7 @@ class UserCard extends StatelessWidget {
           ),
           title: Text(user.name),
           subtitle: Text(user.sugar),
+          onTap: () async => await clickListItem(context),
         ),
       ),
     );
