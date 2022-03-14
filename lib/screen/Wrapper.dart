@@ -1,3 +1,4 @@
+import 'package:coffee_buddy/CurrentUserStreamProvider.dart';
 import 'package:coffee_buddy/model/AppUser.dart';
 import 'package:coffee_buddy/screen/Authentication/Authentication.dart';
 import 'package:coffee_buddy/screen/Authentication/SignIn.dart';
@@ -12,6 +13,6 @@ class Wrapper extends StatelessWidget {
   Widget build(BuildContext context) {
 
     final user = Provider.of<AppUser?>(context);
-    return user != null? Home():Authentication();
+    return user != null? CurrentUserStreamProvider():Authentication();
   }
 }

@@ -23,30 +23,38 @@ class DatabaseController{
 
 
   //current user data fetch/update
-  AppUser getCurrentUserData(DocumentSnapshot snapshot){
+  AppUser? getCurrentUserData(DocumentSnapshot snapshot){
     Map data = snapshot.data() as Map;
     return AppUser(userId: snapshot.id,name: data['name'],sugar: data['sugar'],strength: data['strength']);
   }
   //current user stream
-  Stream<AppUser>  currentUserStream(AppUser currentUser){
+  Stream<AppUser?>  currentUserStream(AppUser currentUser){
     return firestore.collection('Users').doc(currentUser.userId).snapshots().map(getCurrentUserData);
   }
 
 
   // add buddy
   addBuddy(AppUser user, AppUser? currentUser) async{
-    DocumentReference buddyReference =   firestore.collection('Users').doc(currentUser?.userId).collection('Buddy').doc(user.userId);
+    DocumentReference buddyReferenceCurrentUser =   firestore.collection('Users').doc(currentUser?.userId).collection('Buddy').doc(user.userId);
+    DocumentReference buddyReferenceUser =   firestore.collection('Users').doc(user.userId).collection('Buddy').doc(currentUser?.userId);
     DocumentReference chatReference = firestore.collection('Chat').doc();
     String chatKey = chatReference.id;
     final WriteBatch batch = FirebaseFirestore.instance.batch();
-    Buddy buddy = Buddy(userId: user.userId,
+    Buddy buddyCurrentUser = Buddy(userId: user.userId,
                         name: user.name,
                         sugar: user.sugar,
                         strength: user.strength,
                         chatKey: chatKey);
 
+    Buddy buddyUser = Buddy(userId: currentUser?.userId,
+                        name: currentUser!.name,
+                        sugar: currentUser.sugar,
+                        strength: currentUser.strength,
+                        chatKey: chatKey);
 
-    batch.set(buddyReference, buddy.getBuddyMap());
+
+    batch.set(buddyReferenceCurrentUser, buddyCurrentUser.getBuddyMap());
+    batch.set(buddyReferenceUser, buddyUser.getBuddyMap());
     batch.set(chatReference, {'messageCount':0});
     await batch.commit();
   }
