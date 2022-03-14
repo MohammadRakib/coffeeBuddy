@@ -19,6 +19,7 @@ This is a personal flutter project for learning purpose.
   - [People](#people)
   - [Buddy](#buddy)
   - [Profile](#profile)
+* [Loading Screen](loading-screen)
 * [Sign Out](#sign-out)
 
 ## TODO Features
@@ -41,6 +42,31 @@ This is a personal flutter project for learning purpose.
 
 Sign up have all sign in features such as validation etc.
 
-<img align="left" src="ss/signUp1.png" width="230" height="400">
+<img src="ss/signUp1.png" width="230" height="400">
+
+### Home
+
+#### People
+
+<img src="ss/home1.png" width="230" height="400">
+
+#### Buddy
+
+<img src="ss/home1.png" width="230" height="400">
+
+#### Profile
+
+<img align="left" src="ss/home2.png" width="230" height="400">
+<img align="left" src="ss/home3.png" width="230" height="400">
+<img src="ss/home4.png" width="230" height="400">
+
+#### Loading Screen
+
+<img src="ss/loadingScreen.png" width="230" height="400">
+
+#### Sign Out
+
+User can sign out.
+
 
 
