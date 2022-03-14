@@ -9,7 +9,7 @@ This is a personal flutter project for learning purpose.
   - Cloud Firestore
 * Flutter
 * Dart
-* Flutter Spinkit
+* [Flutter Spinkit](https://pub.dev/packages/flutter_spinkit)
 
 ## Features
 
