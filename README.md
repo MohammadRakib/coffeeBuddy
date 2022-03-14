@@ -17,8 +17,8 @@ This is a personal flutter project for learning purpose.
 * [Sign Up](#sign-up)
 * [Home](#home)
   - [People](#people)
-  - [Buddy](#buddy)
   - [Profile](#profile)
+  - [Buddy](#buddy)
 * [Loading Screen](#loading-screen)
 * [Sign Out](#sign-out)
 
@@ -50,17 +50,17 @@ Sign up have all sign in features such as validation etc.
 
 <img src="ss/home1.png" width="230" height="400">
 
-#### Buddy
-
-<img align="left" src="ss/buddy1.png" width="230" height="400">
-<img align="left" src="ss/buddy2.png" width="230" height="400">
-<img src="ss/buddy3.png" width="230" height="400">
-
 #### Profile
 
 <img align="left" src="ss/home2.png" width="230" height="400">
 <img align="left" src="ss/home3.png" width="230" height="400">
 <img src="ss/home4.png" width="230" height="400">
+
+#### Buddy
+
+<img align="left" src="ss/buddy1.png" width="230" height="400">
+<img align="left" src="ss/buddy2.png" width="230" height="400">
+<img src="ss/buddy3.png" width="230" height="400">
 
 #### Loading Screen
 
