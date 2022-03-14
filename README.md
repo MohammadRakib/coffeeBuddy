@@ -52,7 +52,9 @@ Sign up have all sign in features such as validation etc.
 
 #### Buddy
 
-<img src="ss/home1.png" width="230" height="400">
+<img align="left" src="ss/buddy1.png" width="230" height="400">
+<img align="left" src="ss/buddy2.png" width="230" height="400">
+<img src="ss/buddy3.png" width="230" height="400">
 
 #### Profile
 
