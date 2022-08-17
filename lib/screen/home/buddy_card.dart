@@ -1,8 +1,8 @@
-import 'package:coffee_buddy/model/Buddy.dart';
+import 'package:coffee_buddy/controller/database_controller.dart';
+import 'package:coffee_buddy/model/app_user.dart';
+import 'package:coffee_buddy/model/buddy.dart';
+import 'package:coffee_buddy/screen/chat/chat_screen.dart';
 import 'package:flutter/material.dart';
-
-import '../../controller/DatabaseController.dart';
-import '../../model/AppUser.dart';
 
 class BuddyCard extends StatefulWidget {
 
@@ -20,7 +20,12 @@ class _BuddyCardState extends State<BuddyCard> {
   Widget build(BuildContext context) {
     // Item click Logic
     clickListItem(BuildContext context) {
-
+      Navigator.push(context,
+          MaterialPageRoute(
+              builder: (context)=>
+                  ChatScreen(
+                      buddy: widget.buddy,
+                      currentUser: widget.currentUser)));
     }
 
     return Padding(
@@ -32,7 +37,7 @@ class _BuddyCardState extends State<BuddyCard> {
           ),
           title: Text(widget.buddy.name),
           subtitle: Text(widget.buddy.sugar),
-          onTap: () async => await clickListItem(context),
+          onTap: () async => clickListItem(context),
         ),
       ),
     );

@@ -1,8 +1,6 @@
 import 'package:coffee_buddy/CurrentUserStreamProvider.dart';
-import 'package:coffee_buddy/model/AppUser.dart';
-import 'package:coffee_buddy/screen/Authentication/Authentication.dart';
-import 'package:coffee_buddy/screen/Authentication/SignIn.dart';
-import 'package:coffee_buddy/screen/Home/Home.dart';
+import 'package:coffee_buddy/model/app_user.dart';
+import 'package:coffee_buddy/screen/Authentication/authentication.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

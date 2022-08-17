@@ -1,12 +1,12 @@
-import 'package:coffee_buddy/controller/AuthController.dart';
-import 'package:coffee_buddy/controller/DatabaseController.dart';
-import 'package:coffee_buddy/model/AppUser.dart';
-import 'package:coffee_buddy/screen/Home/BuddyCardList.dart';
-import 'package:coffee_buddy/screen/Home/CurrentUser.dart';
+import 'package:coffee_buddy/controller/auth_controller.dart';
+import 'package:coffee_buddy/controller/database_controller.dart';
+import 'package:coffee_buddy/model/app_user.dart';
+import 'package:coffee_buddy/screen/Home/buddy_card_list.dart';
+import 'package:coffee_buddy/screen/Home/current_user.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'UserCardList.dart';
+import 'user_card_list.dart';
 
 class Home extends StatefulWidget {
   @override

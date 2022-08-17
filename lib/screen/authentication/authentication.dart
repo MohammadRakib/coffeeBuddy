@@ -1,5 +1,4 @@
-import 'package:coffee_buddy/screen/Authentication/Register.dart';
-import 'package:coffee_buddy/screen/Authentication/SignIn.dart';
+import 'package:coffee_buddy/screen/Authentication/sign_in.dart';
 import 'package:flutter/material.dart';
 
 class Authentication extends StatefulWidget {

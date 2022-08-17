@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:coffee_buddy/model/AppUser.dart';
-import 'package:coffee_buddy/model/Buddy.dart';
+import 'package:coffee_buddy/model/app_user.dart';
+import 'package:coffee_buddy/model/buddy.dart';
 class DatabaseController{
 
   final FirebaseFirestore firestore = FirebaseFirestore.instance;

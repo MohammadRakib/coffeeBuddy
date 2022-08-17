@@ -1,11 +1,11 @@
-import 'package:coffee_buddy/screen/Home/BuddyCard.dart';
+import 'package:coffee_buddy/Shared/loading.dart';
+import 'package:coffee_buddy/controller/database_controller.dart';
+import 'package:coffee_buddy/model/buddy.dart';
+import 'package:coffee_buddy/model/app_user.dart';
+import 'package:coffee_buddy/screen/Home/buddy_card.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../Shared/Loading.dart';
-import '../../controller/DatabaseController.dart';
-import '../../model/AppUser.dart';
-import '../../model/Buddy.dart';
 
 class BuddyCardList extends StatelessWidget {
 

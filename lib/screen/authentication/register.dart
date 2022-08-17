@@ -1,20 +1,22 @@
-import 'package:coffee_buddy/Shared/Loading.dart';
+import 'package:coffee_buddy/Shared/loading.dart';
+import 'package:coffee_buddy/Shared/decoration.dart';
+import 'package:coffee_buddy/controller/auth_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import '../../Shared/decoration.dart';
-import '../../controller/AuthController.dart';
+import 'package:coffee_buddy/controller/database_controller.dart';
 
-class Signin extends StatefulWidget {
-  const Signin({Key? key}) : super(key: key);
+class Register extends StatefulWidget {
 
+  const Register({Key? key}) : super(key: key);
 
   @override
-  _SigninState createState() => _SigninState();
+  _RegisterState createState() => _RegisterState();
 }
 
-class _SigninState extends State<Signin> {
+class _RegisterState extends State<Register> {
 
   final AuthController _auth = AuthController();
+  final DatabaseController _databaseController = DatabaseController();
   final _formKey = GlobalKey<FormState>();
   String email = '';
   String password = '';
@@ -26,21 +28,9 @@ class _SigninState extends State<Signin> {
     return loading? const Loading() : Scaffold(
       backgroundColor: Colors.brown.shade50,
       appBar: AppBar(
-        title: const Text('Sign In'),
+        title: const Text('Sign Up'),
+        centerTitle: true,
         backgroundColor: Colors.brown.shade300,
-        actions: [
-          ElevatedButton.icon(
-              onPressed: (){
-                Navigator.pushNamed(context, '/register');
-              },
-              icon: const Icon(Icons.person),
-              label: const Text('Sign Up'),
-            style: ButtonStyle(
-              elevation: MaterialStateProperty.all(0.0),
-              backgroundColor: MaterialStateProperty.all(Colors.brown.shade300),
-            ),
-          ),
-        ],
       ),
       body: Padding(
         padding: const EdgeInsets.all(10.0),
@@ -70,28 +60,29 @@ class _SigninState extends State<Signin> {
                     setState(() {
                       loading = true;
                     });
-                    dynamic user = await _auth.emailPasswordSignIn(email: email, password: password);
+                    dynamic user = await _auth.emailPasswordRegister(email: email, password: password);
                     if(user is String){
                       setState(() {
                         errorMessage = user;
                         loading = false;
                       });
                     }else{
-                      print(user.userId);
+                      await _databaseController.updateUser(user);
+                      Navigator.pop(context);
                     }
                   }
                 },
-                child: const Text('sign in'),
+                child: const Text('sign Up'),
                 style: ButtonStyle(
-                  overlayColor: MaterialStateProperty.all(Colors.brown.shade100),
-                  foregroundColor: MaterialStateProperty.all(Colors.brown),
-                  side: MaterialStateProperty.all(const BorderSide(
-                    color: Colors.brown,
-                    width: 1.0,
-                  )),
-                  shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(16.0),
-                  ))
+                    overlayColor: MaterialStateProperty.all(Colors.brown.shade100),
+                    foregroundColor: MaterialStateProperty.all(Colors.brown),
+                    side: MaterialStateProperty.all(const BorderSide(
+                      color: Colors.brown,
+                      width: 1.0,
+                    )),
+                    shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(16.0),
+                    ))
                 ),
               ),
               const SizedBox(height: 15.0,),

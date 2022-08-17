@@ -1,4 +1,4 @@
-import 'package:coffee_buddy/model/AppUser.dart';
+import 'package:coffee_buddy/model/app_user.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class AuthController{

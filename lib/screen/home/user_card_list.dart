@@ -1,8 +1,8 @@
-import 'package:coffee_buddy/model/AppUser.dart';
+import 'package:coffee_buddy/model/app_user.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'UserCard.dart';
+import 'user_card.dart';
 
 class UserCardList extends StatelessWidget {
   const UserCardList({Key? key}) : super(key: key);

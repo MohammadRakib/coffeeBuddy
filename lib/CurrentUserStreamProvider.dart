@@ -1,9 +1,9 @@
-import 'package:coffee_buddy/screen/Home/Home.dart';
+import 'package:coffee_buddy/screen/Home/home.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'controller/DatabaseController.dart';
-import 'model/AppUser.dart';
+import 'controller/database_controller.dart';
+import 'model/app_user.dart';
 
 class CurrentUserStreamProvider extends StatelessWidget {
   final DatabaseController _databaseController = DatabaseController();

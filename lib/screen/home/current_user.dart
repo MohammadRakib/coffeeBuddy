@@ -1,10 +1,10 @@
-import 'package:coffee_buddy/Shared/Loading.dart';
-import 'package:coffee_buddy/controller/DatabaseController.dart';
-import 'package:coffee_buddy/model/AppUser.dart';
+import 'package:coffee_buddy/Shared/loading.dart';
+import 'package:coffee_buddy/Shared/decoration.dart';
+import 'package:coffee_buddy/controller/database_controller.dart';
+import 'package:coffee_buddy/model/app_user.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../Shared/decoration.dart';
 class CurrentUser extends StatefulWidget {
   const CurrentUser({Key? key}) : super(key: key);
 
@@ -14,8 +14,8 @@ class CurrentUser extends StatefulWidget {
 
 class _CurrentUserState extends State<CurrentUser> {
   final _formKey = GlobalKey<FormState>();
-  final List<String> sugars = ['0', '1', '2', '3', '4'];
-  final List<int> strengths = [100, 200, 300, 400, 500, 600, 700, 800, 900];
+  // final List<String> sugars = ['0', '1', '2', '3', '4'];
+  // final List<int> strengths = [100, 200, 300, 400, 500, 600, 700, 800, 900];
   final DatabaseController _databaseController = DatabaseController();
 
   // form values
@@ -53,8 +53,8 @@ class _CurrentUserState extends State<CurrentUser> {
             Slider(
                 value: (_currentStrength??_currentUser.strength).toDouble(),
                 min: 100.0,
-                max: 900.0,
-                divisions: 8,
+                max: 700.0,
+                divisions: 6,
                 activeColor: Colors.brown[_currentStrength??_currentUser.strength],
                 inactiveColor: Colors.brown.shade100,
                 onChanged: (val){

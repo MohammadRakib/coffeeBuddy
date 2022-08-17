@@ -1,7 +1,6 @@
-import 'package:coffee_buddy/model/AppUser.dart';
+import 'package:coffee_buddy/controller/database_controller.dart';
+import 'package:coffee_buddy/model/app_user.dart';
 import 'package:flutter/material.dart';
-
-import '../../controller/DatabaseController.dart';
 
 class UserCard extends StatelessWidget {
 

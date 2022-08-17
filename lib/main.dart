@@ -1,7 +1,7 @@
-import 'package:coffee_buddy/controller/AuthController.dart';
-import 'package:coffee_buddy/model/AppUser.dart';
-import 'package:coffee_buddy/screen/Authentication/Register.dart';
-import 'package:coffee_buddy/screen/Wrapper.dart';
+import 'package:coffee_buddy/controller/auth_controller.dart';
+import 'package:coffee_buddy/model/app_user.dart';
+import 'package:coffee_buddy/screen/Authentication/register.dart';
+import 'package:coffee_buddy/screen/wrapper.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -23,6 +23,7 @@ class MyApp extends StatelessWidget {
       catchError: (_,__) => null,
       initialData: null,
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         routes: {
           '/': (context)=>const Wrapper(),
           '/register': (context) => Register(),
